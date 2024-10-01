@@ -12,13 +12,27 @@ public class ProgPessoas {
         Scanner entrada = new Scanner(System.in);
 
         for (int i = 0; i < 4; i++) {
+            
             System.out.print("Digite o sexo [M/F] do  " + (i + 1) + " elemento: ");
             sexo = entrada.next();
 
             System.out.print("Altura: ");
             altura = entrada.nextDouble();
+            
             if (altura < 0) {
                 break;
+            }
+
+            if (i == 0) {
+                maior = altura;
+                menor = altura;
+            } else {
+                if (altura > maior) {
+                    maior = altura;
+                }
+                if (altura < menor) {
+                    menor = altura;
+                }
             }
 
             if (sexo.equalsIgnoreCase("F")) {
@@ -26,17 +40,6 @@ public class ProgPessoas {
             } else if (sexo.equalsIgnoreCase("M")) {
                 homens += 1;
                 totalalturam += altura;
-                if (homens == 1) {
-                    maior = altura;
-                    menor = altura;
-                } else {
-                    if (altura > maior) {
-                        maior = altura;
-                    }
-                    if (altura < menor) {
-                        menor = altura;
-                    }
-                }
             } else {
                 System.out.println("Sexo invalido! Por favor digita 'M' ou 'F'.");
                 i--;
@@ -49,10 +52,12 @@ public class ProgPessoas {
             System.out.println("Nenhum homem foi inserido.");
         }
 
-        System.out.println("A maior altura entre os homens e: " + maior);
-        System.out.println("A menor altura entre os homens e: " + menor);
+        System.out.println("A maior altura do grupo e: " + maior);
+        System.out.println("A menor altura do grupo e: " + menor);
         System.out.println("A media de altura dos homens e: " + media);
         System.out.println("Numero de mulheres: " + mulheres);
         System.out.println("Numero de homens: " + homens + " com altura total igual: " + totalalturam);
+        
+        entrada.close();
     }
 }
