@@ -13,17 +13,15 @@ public class OrdemDecrescente {
             System.out.print("Digita o " + (i + 1) + " valor: ");
             valores[i] = entrada.nextInt();
         }
-        
-        
-        for (int num: valores){
-            System.out.print("\n"+num + " ");
+
+        for (int num : valores) {
+            System.out.print(num + " ");
         }
         Arrays.sort(valores);
         System.out.print("\n\nOrdenado e igual a: ");
-        for (int num: valores){
-            System.out.print(num +"  ");
+        for (int num : valores) {
+            System.out.print(num + "  ");
         }
-    
 
     }
 }
