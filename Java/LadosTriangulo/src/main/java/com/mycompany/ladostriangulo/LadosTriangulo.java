@@ -16,11 +16,9 @@ public class LadosTriangulo {
         System.out.print("Indica o lado 3: ");
         r3 = entrada.nextInt();
 
-        // Verifica se os lados podem formar um triângulo
         if (r1 < r2 + r3 && r2 < r1 + r3 && r3 < r1 + r2) {
             System.out.println("\nPODE FORMAR UM TRIANGULO: ");
 
-            // Verifica o tipo de triângulo
             if (r1 == r2 && r2 == r3) {
                 System.out.println("EQUILATERO");
             } else if (r1 == r2 || r1 == r3 || r2 == r3) {
