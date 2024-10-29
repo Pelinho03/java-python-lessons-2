@@ -6,8 +6,10 @@ public class LeitorDePessoas {
 
     public static void main(String[] args) {
         Scanner entrada = new Scanner(System.in);
+
         int totalPessoas = 10, totalIdades = 0;
         double media;
+
         String[] nomes = new String[totalPessoas];
         int[] idades = new int[totalPessoas];
 
