@@ -67,7 +67,7 @@ public class RentCarLda {
                     break;
             }
 
-        } while (opcao != 4);
+        } while (opcao != 5);
 
         entrada.close(); // Fechar o scanner para evitar leaks de memória
     }
