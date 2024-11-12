@@ -27,7 +27,8 @@ public class RentCarLda {
                     + "\n1 - Inserir Automovel"
                     + "\n2 - Inserir Cliente"
                     + "\n3 - Criar Aluguer"
-                    + "\n4 - Sair");
+                    + "\n4 - Ver lista de Automoveis"
+                    + "\n5 - Sair");
             System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-");
             System.out.print("\nOpcao: ");
 
@@ -56,6 +57,9 @@ public class RentCarLda {
                     criarAluguer(entrada);
                     break;
                 case 4:
+                    //LISTA DE AUTOMOVEIS
+                    break;
+                case 5:
                     System.out.println("A sair... Obrigado por usar Rent Car Lda!");
                     break;
                 default:
@@ -123,44 +127,47 @@ public class RentCarLda {
     // Método para criar um aluguer
     private static void criarAluguer(Scanner entrada) {
         if (automoveis.isEmpty() || clientes.isEmpty()) {
-            System.out.println("Não há automóveis ou clientes para realizar o aluguer.");
+            System.out.println("Não ha automoveis ou clientes para realizar o aluguer.");
             return;
         }
 
-        System.out.println("Escolha um automóvel:");
+        System.out.println("Escolha um automovel:");
 
         // Mostrar lista de automóveis disponíveis
         for (int i = 0; i < automoveis.size(); i++) {
             Automovel a = automoveis.get(i);
-            System.out.println(i + 1 + " - " + a.getMarca() + " " + a.getModelo() + " (" + a.getMatricula() + ")");
+            System.out.println((i + 1) + " - " + a.getMarca() + " " + a.getModelo() + " (" + a.getMatricula() + ")");
         }
 
+        System.out.print("\nIndica o Id: ");
+        //escolher o automovel (-1) porque o (+1) é apenas para apresentação
         int escolhaAutomovel = entrada.nextInt() - 1; // Ajuste para 0-index
         if (escolhaAutomovel < 0 || escolhaAutomovel >= automoveis.size()) {
-            System.out.println("Escolha inválida.");
+            System.out.println("Escolha invalida.");
             return;
         }
 
         Automovel automovelEscolhido = automoveis.get(escolhaAutomovel);
 
-        System.out.println("Escolha um cliente:");
+        System.out.println("\nEscolha um cliente:");
 
         // Mostrar lista de clientes
         for (int i = 0; i < clientes.size(); i++) {
             Cliente c = clientes.get(i);
-            System.out.println(i + 1 + " - " + c.getNome() + " (CC: " + c.getCc() + ")");
+            System.out.println((i + 1) + " - " + c.getNome() + " (CC: " + c.getCc() + ")");
         }
 
+        System.out.print("\nIndica o Id: ");
         int escolhaCliente = entrada.nextInt() - 1; // Ajuste para 0-index
         if (escolhaCliente < 0 || escolhaCliente >= clientes.size()) {
-            System.out.println("Escolha inválida.");
+            System.out.println("Escolha invalida.");
             return;
         }
 
         Cliente clienteEscolhido = clientes.get(escolhaCliente);
 
         // Pedir as datas de início e fim
-        System.out.print("Data de início (formato yyyy-mm-dd): ");
+        System.out.print("\nData de inicio (formato yyyy-mm-dd): ");
         String dataInicioStr = entrada.next();
         System.out.print("Data de fim (formato yyyy-mm-dd): ");
         String dataFimStr = entrada.next();
@@ -172,7 +179,8 @@ public class RentCarLda {
             Date dataFim = formato.parse(dataFimStr);
 
             Aluguer aluguer = new Aluguer(automovelEscolhido, clienteEscolhido, dataInicio, dataFim);
-            System.out.println("Aluguer criado com sucesso! Custo: " + aluguer.calcularCusto());
+            System.out.println("\nAluguer criado com sucesso! Custo: " + aluguer.calcularCusto() + "€.");
+            System.out.println("");
         } catch (ParseException e) {
             System.out.println("Erro ao processar as datas.");
         }
