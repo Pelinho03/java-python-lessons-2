@@ -16,6 +16,7 @@ public class RentCarLda {
     private static ArrayList<Cliente> clientes = new ArrayList<>();
 
     public static void main(String[] args) {
+        inicializarDados();
         Scanner entrada = new Scanner(System.in);
         int opcao = 4;
 
@@ -26,9 +27,10 @@ public class RentCarLda {
             System.out.println("Escolhe uma opcao: "
                     + "\n1 - Inserir Automovel"
                     + "\n2 - Inserir Cliente"
-                    + "\n3 - Criar Aluguer"
-                    + "\n4 - Ver lista de Automoveis"
-                    + "\n5 - Sair");
+                    + "\n3 - Ver lista de Automoveis"
+                    + "\n4 - Ver lista de Clientes"
+                    + "\n5 - Criar Aluguer"
+                    + "\n6 - Sair");
             System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-");
             System.out.print("\nOpcao: ");
 
@@ -41,7 +43,7 @@ public class RentCarLda {
 
             opcao = entrada.nextInt();
 
-            if (opcao < 1 || opcao > 4) {
+            if (opcao < 1 || opcao > 6) {
                 System.out.println("Valor invalido! Tenta novamente.");
                 continue;
             }
@@ -54,12 +56,15 @@ public class RentCarLda {
                     inserirCliente(entrada);
                     break;
                 case 3:
-                    criarAluguer(entrada);
+                    listaAutomoveis();
                     break;
                 case 4:
-                    //LISTA DE AUTOMOVEIS
+                    listaClientes();
                     break;
                 case 5:
+                    criarAluguer(entrada);
+                    break;
+                case 6:
                     System.out.println("A sair... Obrigado por usar Rent Car Lda!");
                     break;
                 default:
@@ -67,11 +72,25 @@ public class RentCarLda {
                     break;
             }
 
-        } while (opcao != 5);
+        } while (opcao != 6);
 
         entrada.close(); // Fechar o scanner para evitar leaks de memória
     }
 
+// Método para inicializar dados de teste
+    private static void inicializarDados() {
+        // Adicionar alguns automóveis
+        automoveis.add(new Automovel("Toyota", "Corolla", "Preto", 2019, 1600, "AA-01-AA", 50.0, false));
+        automoveis.add(new Automovel("Honda", "Civic", "Branco", 2021, 2000, "BB-02-BB", 65.0, false));
+        automoveis.add(new Automovel("Ford", "Focus", "Azul", 2018, 1500, "CC-03-CC", 45.0, false));
+
+        // Adicionar alguns clientes
+        clientes.add(new Cliente("Joao Silva", "Rua A, Porto", "12345678", "C123456"));
+        clientes.add(new Cliente("Maria Santos", "Av. B, Lisboa", "87654321", "D876543"));
+        clientes.add(new Cliente("Carlos Pereira", "Praça C, Coimbra", "23456789", "E234567"));
+    }
+
+    //case 1
     // Método para inserir um automóvel
     private static void inserirAutomovel(Scanner entrada) {
         System.out.print("\nMarca: ");
@@ -103,6 +122,7 @@ public class RentCarLda {
         System.out.println("");
     }
 
+    //case 2
     // Método para inserir um cliente
     private static void inserirCliente(Scanner entrada) {
         System.out.print("Nome: ");
@@ -124,6 +144,27 @@ public class RentCarLda {
         System.out.println("");
     }
 
+    //case 3
+    //Método para carregar a lista de automóveis
+    private static void listaAutomoveis() {
+        for (int l = 0; l < automoveis.size(); l++) {
+            Automovel a = automoveis.get(l);
+            System.out.println((l + 1) + " - " + a.getMarca() + " " + a.getModelo() + " " + "(" + a.getMatricula() + ")" + " " + " de " + a.getAnoAquisicao() + " " + "(" + a.getValorDia() + " € por dia)");
+        }
+        System.out.println("");
+    }
+
+    //case 4
+    //Método para carregar lista de clientes
+    private static void listaClientes() {
+        for (int c = 0; c < clientes.size(); c++) {
+            Cliente a = clientes.get(c);
+            System.out.println((c + 1) + "- " + a.getNome() + " " + "(CC: " + a.getCc() + ")");
+        }
+        System.out.println("");
+    }
+
+    //case 5
     // Método para criar um aluguer
     private static void criarAluguer(Scanner entrada) {
         if (automoveis.isEmpty() || clientes.isEmpty()) {
@@ -179,7 +220,14 @@ public class RentCarLda {
             Date dataFim = formato.parse(dataFimStr);
 
             Aluguer aluguer = new Aluguer(automovelEscolhido, clienteEscolhido, dataInicio, dataFim);
-            System.out.println("\nAluguer criado com sucesso! Custo: " + aluguer.calcularCusto() + "€.");
+
+            System.out.println("\nResumo do aluguer:");
+            System.out.println("Automovel: " + automovelEscolhido.getMarca() + " " + automovelEscolhido.getModelo()
+                    + " (" + automovelEscolhido.getMatricula() + ")");
+            System.out.println("Cliente: " + clienteEscolhido.getNome() + " (CC: " + clienteEscolhido.getCc() + ")");
+            System.out.println("Data de inicio: " + dataInicioStr);
+            System.out.println("Data de fim: " + dataFimStr);
+            System.out.println("Custo total: " + aluguer.calcularCusto() + "€");
             System.out.println("");
         } catch (ParseException e) {
             System.out.println("Erro ao processar as datas.");

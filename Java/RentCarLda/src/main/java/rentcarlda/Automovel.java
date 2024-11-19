@@ -79,8 +79,8 @@ public class Automovel {
     public void setValorDia(double valorDia) {
         this.valorDia = valorDia;
     }
-
     //termina os getteres e setteres
+
     public boolean isAlugado() {
         return alugado;
     }
