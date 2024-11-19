@@ -20,6 +20,7 @@ public class RentCarLda {
     private static ArrayList<Cliente> clientes = new ArrayList<>();
 
     public static void main(String[] args) {
+        
         inicializarDados();
         Scanner entrada = new Scanner(System.in);
         int opcao = 6, escolha = 3;
