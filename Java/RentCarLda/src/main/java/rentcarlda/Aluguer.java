@@ -17,6 +17,40 @@ public class Aluguer {
         this.dataFim = dataFim;
     }
 
+    //getters e setters
+    public Automovel getAutomovel() {
+        return automovel;
+    }
+
+    public void setAutomovel(Automovel automovel) {
+        this.automovel = automovel;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public Date getDataInicio() {
+        return dataInicio;
+    }
+
+    public void setDataInicio(Date dataInicio) {
+        this.dataInicio = dataInicio;
+    }
+
+    public Date getDataFim() {
+        return dataFim;
+    }
+
+    public void setDataFim(Date dataFim) {
+        this.dataFim = dataFim;
+    }
+    //fim dos getters e setters
+
     //calcula o custo total do aluguer
     public double calcularCusto() {
         long diferencaDias = (dataFim.getTime() - dataInicio.getTime()) / (1000 * 60 * 60 * 24);

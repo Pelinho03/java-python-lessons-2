@@ -1,5 +1,9 @@
 package rentcarlda;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
 public class Automovel {
 
     private String marca;
@@ -10,9 +14,10 @@ public class Automovel {
     private String matricula;
     private double valorDia;
     private boolean alugado;
+    private List<Aluguer> alugueres; // Lista de alugueres
 
-    //construtor
-    public Automovel(String marca, String modelo, String cor, int anoAquisicao, int cilindrada, String matricula, double valorDia, boolean alugado) {
+    // Construtor
+    public Automovel(String marca, String modelo, String cor, int anoAquisicao, int cilindrada, String matricula, double valorDia, boolean alugado, List<Aluguer> alugueres) {
         this.marca = marca;
         this.modelo = modelo;
         this.cor = cor;
@@ -21,9 +26,10 @@ public class Automovel {
         this.matricula = matricula;
         this.valorDia = valorDia;
         this.alugado = alugado;
+        this.alugueres = (alugueres != null) ? alugueres : new ArrayList<>(); // Evita null
     }
 
-    // getteres e setteres
+    // Getters e Setters
     public String getMarca() {
         return marca;
     }
@@ -79,7 +85,6 @@ public class Automovel {
     public void setValorDia(double valorDia) {
         this.valorDia = valorDia;
     }
-    //termina os getteres e setteres
 
     public boolean isAlugado() {
         return alugado;
@@ -89,6 +94,29 @@ public class Automovel {
         this.alugado = alugado;
     }
 
+    public List<Aluguer> getAlugueres() {
+        return alugueres;
+    }
+
+    public void adicionarAluguer(Aluguer aluguer) {
+        alugueres.add(aluguer);
+    }
+
+    // Verificar se o automóvel está disponível numa data específica
+    public boolean estaDisponivel(Date dataInicio, Date dataFim) {
+        for (Aluguer aluguer : alugueres) {
+            Date inicio = aluguer.getDataInicio();
+            Date fim = aluguer.getDataFim();
+
+            // Verificar se as datas se sobrepõem
+            if (!(dataFim.before(inicio) || dataInicio.after(fim))) {
+                return false; // Está ocupado
+            }
+        }
+        return true; // Está disponível
+    }
+
+    // Calcular o custo do aluguer para um número de dias
     public double calcularCusto(int dias) {
         return dias * valorDia;
     }
