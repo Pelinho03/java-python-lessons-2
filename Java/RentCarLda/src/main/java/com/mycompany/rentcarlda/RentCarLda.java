@@ -1,16 +1,14 @@
 package com.mycompany.rentcarlda;
 
-import classes.CriarAluguer;
-import classes.InserirAutomovel;
-import classes.InserirCliente;
-import classes.ListaAutomoveis;
-import classes.ListaClientes;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import metodos.CriarAluguer;
+import metodos.InserirAutomovel;
+import metodos.InserirCliente;
+import metodos.ListaAutomoveis;
+import metodos.ListaClientes;
+
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Scanner;
-import rentcarlda.Aluguer;
+
 import rentcarlda.Automovel;
 import rentcarlda.Cliente;
 
@@ -31,11 +29,11 @@ public class RentCarLda {
             System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-");
             System.out.println("""
                                Escolhe uma opcao: 
-                               1 - Inserir Automovel
-                               2 - Inserir Cliente
+                               1 - Automovel
+                               2 - Cliente
                                3 - Ver lista de Automoveis
                                4 - Ver lista de Clientes
-                               5 - Criar Aluguer
+                               5 - Aluguer
                                6 - Sair""");
             System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-");
             System.out.print("\nOpcao: ");

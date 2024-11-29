@@ -1,4 +1,4 @@
-package classes;
+package metodos;
 
 import java.text.SimpleDateFormat;
 import java.util.Scanner;
@@ -68,7 +68,7 @@ public class ListaAutomoveis {
                                 // Exibir informações do aluguer
                                 System.out.println("- " + a.getMarca() + " " + a.getModelo() + " (" + a.getMatricula() + ") de "
                                         + a.getAnoAquisicao() + " (" + a.getValorDia() + " € por dia)\n- Alugado de " + dataInicioFormatada + " até " + dataFimFormatada
-                                        + "\n- Cliente: " + nomeCliente + " (CC: " + ccCliente + ")");
+                                        + "\n- Cliente: " + nomeCliente + " (CC: " + ccCliente + ")" + "\n- Total: " + aluguer.calcularCusto());
                             }
                             System.out.println();
                         }
