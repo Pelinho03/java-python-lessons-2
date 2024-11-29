@@ -13,7 +13,6 @@ public class Automovel {
     private int cilindrada;
     private String matricula;
     private double valorDia;
-    private boolean alugado;
     private List<Aluguer> alugueres; // Lista de alugueres
 
     // Construtor
@@ -25,7 +24,6 @@ public class Automovel {
         this.cilindrada = cilindrada;
         this.matricula = matricula;
         this.valorDia = valorDia;
-        this.alugado = alugado;
         this.alugueres = (alugueres != null) ? alugueres : new ArrayList<>(); // Evita null
     }
 
@@ -86,14 +84,6 @@ public class Automovel {
         this.valorDia = valorDia;
     }
 
-    public boolean isAlugado() {
-        return alugado;
-    }
-
-    public void setAlugado(boolean alugado) {
-        this.alugado = alugado;
-    }
-
     public List<Aluguer> getAlugueres() {
         return alugueres;
     }
@@ -108,7 +98,6 @@ public class Automovel {
             Date inicio = aluguer.getDataInicio();
             Date fim = aluguer.getDataFim();
 
-            // Verificar se as datas se sobrepõem
             if (!(dataFim.before(inicio) || dataInicio.after(fim))) {
                 return false; // Está ocupado
             }
@@ -116,8 +105,32 @@ public class Automovel {
         return true; // Está disponível
     }
 
+    // Verificar se está alugado no momento
+    public boolean isAlugado() {
+        for (Aluguer aluguer : alugueres) {
+            Date hoje = new Date();
+            if (!(hoje.before(aluguer.getDataInicio()) || hoje.after(aluguer.getDataFim()))) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     // Calcular o custo do aluguer para um número de dias
     public double calcularCusto(int dias) {
         return dias * valorDia;
+    }
+
+    // Listar todos os alugueres
+    public void listarAlugueres() {
+        if (alugueres.isEmpty()) {
+            System.out.println("Este automóvel não possui alugueres.");
+            return;
+        }
+        for (Aluguer aluguer : alugueres) {
+            System.out.println("Cliente: " + aluguer.getCliente().getNome()
+                    + " | Data Início: " + aluguer.getDataInicio()
+                    + " | Data Fim: " + aluguer.getDataFim());
+        }
     }
 }

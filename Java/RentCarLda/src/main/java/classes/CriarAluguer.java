@@ -10,16 +10,14 @@ import rentcarlda.Automovel;
 import rentcarlda.Cliente;
 
 public class CriarAluguer {
-    //case 5
     // Criar aluguer
-
     public static void criarAluguer(Scanner entrada, ArrayList<Automovel> automoveis, ArrayList<Cliente> clientes) {
         if (automoveis.isEmpty() || clientes.isEmpty()) {
             System.out.println("Não há automóveis ou clientes para realizar o aluguer.");
             return;
         }
 
-        System.out.println("Escolha um automovel:");
+        System.out.println("Escolha um automóvel:");
         for (int i = 0; i < automoveis.size(); i++) {
             Automovel a = automoveis.get(i);
             System.out.println((i + 1) + " - " + a.getMarca() + " " + a.getModelo() + " (" + a.getMatricula() + ")");
@@ -28,7 +26,7 @@ public class CriarAluguer {
         System.out.print("\nIndica o Id: ");
         int escolhaAutomovel = entrada.nextInt() - 1;
         if (escolhaAutomovel < 0 || escolhaAutomovel >= automoveis.size()) {
-            System.out.println("Escolha invalida.");
+            System.out.println("Escolha inválida.");
             return;
         }
 
@@ -43,13 +41,13 @@ public class CriarAluguer {
         System.out.print("\nIndica o Id: ");
         int escolhaCliente = entrada.nextInt() - 1;
         if (escolhaCliente < 0 || escolhaCliente >= clientes.size()) {
-            System.out.println("Escolha invalida.");
+            System.out.println("Escolha inválida.");
             return;
         }
 
         Cliente clienteEscolhido = clientes.get(escolhaCliente);
 
-        System.out.print("\nData de inicio (formato yyyy-MM-dd): ");
+        System.out.print("\nData de início (formato yyyy-MM-dd): ");
         String dataInicioStr = entrada.next();
         System.out.print("Data de fim (formato yyyy-MM-dd): ");
         String dataFimStr = entrada.next();
@@ -59,26 +57,28 @@ public class CriarAluguer {
             Date dataInicio = formato.parse(dataInicioStr);
             Date dataFim = formato.parse(dataFimStr);
 
-            //se a data de inicio for após a da data de fim emite a mensagem
+            // Validar se a data de início é anterior à data de fim
             if (dataInicio.after(dataFim)) {
-                System.out.println("\nErro: A data de inicio deve ser anterior a data de fim.");
+                System.out.println("\nErro: A data de início deve ser anterior à data de fim.");
                 return;
             }
 
-            //
+            // Verificar disponibilidade do automóvel
             if (!automovelEscolhido.estaDisponivel(dataInicio, dataFim)) {
-                System.out.println("\nAutomovel indisponivel nas datas selecionadas.");
-                System.out.println("");
+                System.out.println("\nAutomóvel indisponível nas datas selecionadas.");
                 return;
             }
 
+            // Criar o aluguer
             Aluguer aluguer = new Aluguer(automovelEscolhido, clienteEscolhido, dataInicio, dataFim);
             automovelEscolhido.adicionarAluguer(aluguer);
 
+            // Resumo do aluguer
             System.out.println("\nResumo do aluguer:");
-            System.out.println("Automavel: " + automovelEscolhido.getMarca() + " " + automovelEscolhido.getModelo() + " (" + automovelEscolhido.getMatricula() + ")");
+            System.out.println("Automóvel: " + automovelEscolhido.getMarca() + " " + automovelEscolhido.getModelo()
+                    + " (" + automovelEscolhido.getMatricula() + ")");
             System.out.println("Cliente: " + clienteEscolhido.getNome() + " (CC: " + clienteEscolhido.getCc() + ")");
-            System.out.println("Data de inicio: " + dataInicioStr);
+            System.out.println("Data de início: " + dataInicioStr);
             System.out.println("Data de fim: " + dataFimStr);
             System.out.println("Custo total: " + aluguer.calcularCusto() + "€");
             System.out.println("");
