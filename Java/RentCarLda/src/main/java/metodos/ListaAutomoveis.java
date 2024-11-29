@@ -3,8 +3,10 @@ package metodos;
 import java.text.SimpleDateFormat;
 import java.util.Scanner;
 import java.util.ArrayList;
+
 import rentcarlda.Aluguer;
 import rentcarlda.Automovel;
+import rentcarlda.Cliente;
 
 public class ListaAutomoveis {
 
@@ -34,54 +36,70 @@ public class ListaAutomoveis {
             }
 
             switch (escolha) {
-                case 1 -> { // Automóveis disponíveis
+                case 1:
+                    // Automóveis disponíveis
                     boolean encontrouDisponiveis = false;
                     for (Automovel a : automoveis) {
                         if (!a.isAlugado()) { // Só mostra disponíveis
                             encontrouDisponiveis = true;
-                            System.out.println("- " + a.getMarca() + " " + a.getModelo() + " (" + a.getMatricula() + ") de "
-                                    + a.getAnoAquisicao() + " (" + a.getValorDia() + " € por dia) - Disponível");
+                            System.out.println("- " + a.getMarca() + " " + a.getModelo() + " (" + a.getMatricula() + ")\n  - Ano: "
+                                    + a.getAnoAquisicao() + "\n  - Valor: " + a.getValorDia() + " € por dia - Disponível");
+                            System.out.println();
                         }
                     }
                     if (!encontrouDisponiveis) {
                         System.out.println("Nenhum automóvel disponível.");
                     }
                     System.out.println("");
-                }
-                case 2 -> { // Automóveis alugados
+                    break;
+                case 2:
+                    // Automóveis alugados
                     boolean encontrouAlugados = false;
+                    ArrayList<Aluguer> todosAlugueres = new ArrayList<>();
 
+                    // Recolher todos os alugueres dos automóveis
                     for (Automovel a : automoveis) {
-                        if (!a.getAlugueres().isEmpty()) { // Só mostra automóveis com alugueres
-                            for (Aluguer aluguer : a.getAlugueres()) {
-                                encontrouAlugados = true;
+                        todosAlugueres.addAll(a.getAlugueres());
+                    }
 
-                                // Formatar as datas de início e fim para exibição
-                                SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
-                                String dataFimFormatada = formato.format(aluguer.getDataFim());
-                                String dataInicioFormatada = formato.format(aluguer.getDataInicio());
+                    // Ordenar os alugueres pela data de fim
+                    todosAlugueres.sort((a1, a2) -> a1.getDataFim().compareTo(a2.getDataFim()));
 
-                                // Obter informações do cliente
-                                String nomeCliente = aluguer.getCliente().getNome();
-                                String ccCliente = aluguer.getCliente().getCc();
+                    // Mostrar os alugueres ordenados
+                    for (Aluguer aluguer : todosAlugueres) {
+                        encontrouAlugados = true;
 
-                                // Exibir informações do aluguer
-                                System.out.println("- " + a.getMarca() + " " + a.getModelo() + " (" + a.getMatricula() + ") de "
-                                        + a.getAnoAquisicao() + " (" + a.getValorDia() + " € por dia)\n- Alugado de " + dataInicioFormatada + " até " + dataFimFormatada
-                                        + "\n- Cliente: " + nomeCliente + " (CC: " + ccCliente + ")" + "\n- Total: " + aluguer.calcularCusto());
-                            }
-                            System.out.println();
-                        }
+                        // Formatar as datas de início e fim para exibição
+                        SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
+                        String dataFimFormatada = formato.format(aluguer.getDataFim());
+                        String dataInicioFormatada = formato.format(aluguer.getDataInicio());
+
+                        // Obter informações do automóvel e cliente
+                        Automovel a = aluguer.getAutomovel();
+                        Cliente cliente = aluguer.getCliente();
+                        String nomeCliente = cliente.getNome();
+                        String ccCliente = cliente.getCc();
+
+                        // Exibir informações do aluguer
+                        System.out.println("- " + a.getMarca() + " " + a.getModelo() + " (" + a.getMatricula() + ") de "
+                                + a.getAnoAquisicao() + " (" + a.getValorDia() + " € por dia)\n- Alugado de " + dataInicioFormatada
+                                + " até " + dataFimFormatada + "\n- Cliente: " + nomeCliente + " (CC: " + ccCliente + ")"
+                                + "\n- Total: " + aluguer.calcularCusto());
+                        System.out.println();
                     }
 
                     if (!encontrouAlugados) {
                         System.out.println("Nenhum automóvel alugado.");
                     }
                     System.out.println("");
-                }
+                    break;
 
-                case 3 -> System.out.println("A voltar ao menu principal, obrigado.");
-                default -> System.out.println("Valor inválido!");
+                case 3:
+                    System.out.println("A voltar ao menu principal, obrigado.");
+                    break;
+                default:
+                    System.out.println("Valor inválido!");
+                    break;
             }
             System.out.println("");
         } while (escolha != 3);
