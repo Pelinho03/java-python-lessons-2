@@ -13,11 +13,13 @@ public class InserirAutomovel {
     public static void inserirAutomovel(Scanner entrada, List<Automovel> automoveis) {
         int escolha = 4;
         do {
+            System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-");
             System.out.println("Escolhe uma das opções:");
             System.out.println("1 - Inserir Automóvel." +
                     "\n2 - Eliminar Automóvel." +
                     "\n3 - Alterar Automóvel." +
                     "\n4 - Sair.");
+            System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-");
             System.out.print("\nOpcao: ");
 
             // Verificar se a entrada é válida (número)
