@@ -15,9 +15,9 @@ public class InserirCliente {
         int escolha = 4;
         do {
             System.out.println("Escolhe uma das opções:");
-            System.out.println("1 - Inserir cliente." +
-                    "\n2 - Eliminar cliente." +
-                    "\n3 - Alterar cliente." +
+            System.out.println("1 - Inserir Cliente." +
+                    "\n2 - Eliminar Cliente." +
+                    "\n3 - Alterar Cliente." +
                     "\n4 - Sair.");
             System.out.print("\nOpcao: ");
 
@@ -115,45 +115,31 @@ public class InserirCliente {
 
                     System.out.println("\nAlterar os seguintes campos (pressiona Enter para manter o valor atual):\n");
 
-                    Cliente newCliente= new Cliente(nome,morada,cc,cartaConducao,)
-
                     System.out.print("Novo Nome (" + clienteAlterar.getNome() + "): ");
-                    String novoNome = entrada.nextLine(); //ESTAMOS AQUI
-                    if (!novaMarca.isEmpty()) automovelAlterar.setMarca(novaMarca);
+                    String novoNome = entrada.nextLine();
+                    if (!novoNome.isEmpty()) clienteAlterar.setNome(novoNome);
 
-                    System.out.print("Novo Modelo (" + automovelAlterar.getModelo() + "): ");
-                    String novoModelo = entrada.nextLine();
-                    if (!novoModelo.isEmpty()) automovelAlterar.setModelo(novoModelo);
+                    System.out.print("Novo CC (" + clienteAlterar.getCc() + "): ");
+                    String novoCc = entrada.nextLine();
+                    if (!novoCc.isEmpty()) clienteAlterar.setCc(novoCc);
 
-                    System.out.print("Nova Cor (" + automovelAlterar.getCor() + "): ");
-                    String novaCor = entrada.nextLine();
-                    if (!novaCor.isEmpty()) automovelAlterar.setCor(novaCor);
+                    System.out.print("Nova Morada (" + clienteAlterar.getMorada() + "): ");
+                    String novaMorada = entrada.nextLine();
+                    if (!novaMorada.isEmpty()) clienteAlterar.setMorada(novaMorada);
 
-                    System.out.print("Novo Ano de Aquisição (" + automovelAlterar.getAnoAquisicao() + "): ");
-                    String novoAno = entrada.nextLine();
-                    if (!novoAno.isEmpty()) automovelAlterar.setAnoAquisicao(Integer.parseInt(novoAno));
+                    System.out.print("Nova Carta de Condução (" + clienteAlterar.getCartaConducao() + "): ");
+                    String novaCartaConducao = entrada.nextLine();
+                    if (!novaCartaConducao.isEmpty()) clienteAlterar.setCartaConducao(novaCartaConducao);
 
-                    System.out.print("Nova Cilindrada (" + automovelAlterar.getCilindrada() + "): ");
-                    int novaCilindrada = entrada.nextInt();
-                    entrada.nextLine(); // Consumir a linha restante após nextInt()
-                    if (novaCilindrada > 0) automovelAlterar.setCilindrada(novaCilindrada);
-
-                    System.out.print("Nova Matrícula (" + automovelAlterar.getMatricula() + "): ");
-                    String novaMatricula = entrada.nextLine();
-                    if (!novaMatricula.isEmpty()) automovelAlterar.setMatricula(novaMatricula);
-
-                    System.out.print("Novo Valor Diário (" + automovelAlterar.getValorDia() + "): ");
-                    double novoValor = entrada.nextDouble();
-                    if (novoValor > 0) automovelAlterar.setValorDia(novoValor);
-
-                    System.out.println("Automóvel alterado com sucesso!\n");
+                    System.out.println("Cliente alterado com sucesso!\n");
                     break;
 
                 case 4:
                     System.out.println("A voltar ao menu principal, obrigado.\n");
                     break;
+
                 default:
-                    System.out.println("Valor inválido!");
+                    System.out.println("Valor inválido!\n");
                     break;
             }
 

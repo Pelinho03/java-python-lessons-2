@@ -14,9 +14,9 @@ public class InserirAutomovel {
         int escolha = 4;
         do {
             System.out.println("Escolhe uma das opções:");
-            System.out.println("1 - Inserir automóvel." +
-                    "\n2 - Eliminar automóvel." +
-                    "\n3 - Alterar automóvel." +
+            System.out.println("1 - Inserir Automóvel." +
+                    "\n2 - Eliminar Automóvel." +
+                    "\n3 - Alterar Automóvel." +
                     "\n4 - Sair.");
             System.out.print("\nOpcao: ");
 
@@ -158,7 +158,7 @@ public class InserirAutomovel {
                     System.out.println("A voltar ao menu principal, obrigado.\n");
                     break;
                 default:
-                    System.out.println("Valor inválido!");
+                    System.out.println("Valor inválido!\n");
                     break;
             }
 
