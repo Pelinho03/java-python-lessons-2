@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/ExVetores/pom.xml" />
+        <option value="$PROJECT_DIR$/MatrizEx1/pom.xml" />
+        <option value="$PROJECT_DIR$/RentCarLda/pom.xml" />
+        <option value="$PROJECT_DIR$/StockMedio/pom.xml" />
+        <option value="$PROJECT_DIR$/ListrosDsit/pom.xml" />
+        <option value="$PROJECT_DIR$/ProgPessoas/pom.xml" />
+        <option value="$PROJECT_DIR$/teatroTeste/pom.xml" />
+        <option value="$PROJECT_DIR$/ComicaoVenda/pom.xml" />
+        <option value="$PROJECT_DIR$/Atividade1Ltc/pom.xml" />
+        <option value="$PROJECT_DIR$/ConvDollarEuro/pom.xml" />
+        <option value="$PROJECT_DIR$/LadosTriangulo/pom.xml" />
+        <option value="$PROJECT_DIR$/AppDistributiva/pom.xml" />
+        <option value="$PROJECT_DIR$/VerificarCodigo/pom.xml" />
+        <option value="$PROJECT_DIR$/JavaTemperaturas/pom.xml" />
+        <option value="$PROJECT_DIR$/MediaNotasAlunos/pom.xml" />
+        <option value="$PROJECT_DIR$/OrdemDecrescente/pom.xml" />
+        <option value="$PROJECT_DIR$/ValoresDigitados/pom.xml" />
+        <option value="$PROJECT_DIR$/VerificarCodigoProf/pom.xml" />
+        <option value="$PROJECT_DIR$/TodosRelacionamentos/pom.xml" />
+        <option value="$PROJECT_DIR$/TodosRelacionamrntosCorr/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" project-jdk-name="openjdk-23" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

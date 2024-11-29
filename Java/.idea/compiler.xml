@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="LadosTriangulo" />
+        <module name="JavaTemperaturas" />
+        <module name="ListrosDsit" />
+        <module name="teatroTeste" />
+        <module name="ValoresDigitados" />
+        <module name="ExVetores" />
+        <module name="TodosRelacionamrntosCorr" />
+        <module name="Atividade1Ltc" />
+        <module name="TodosRelacionamentos" />
+        <module name="ConvDollarEuro" />
+        <module name="OrdemDecrescente" />
+        <module name="MediaNotasAlunos" />
+        <module name="RentCarLda" />
+        <module name="ProgPessoas" />
+        <module name="AppDistributiva" />
+        <module name="VerificarCodigoProf" />
+        <module name="ComicaoVenda" />
+        <module name="MatrizEx1" />
+        <module name="StockMedio" />
+        <module name="VerificarCodigo" />
+      </profile>
+    </annotationProcessing>
+  </component>
+</project>

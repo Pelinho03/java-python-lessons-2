@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/AppDistributiva/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/AppDistributiva/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Atividade1Ltc/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Atividade1Ltc/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ComicaoVenda/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ComicaoVenda/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ConvDollarEuro/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ConvDollarEuro/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ExVetores/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ExVetores/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/JavaTemperaturas/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/JavaTemperaturas/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/LadosTriangulo/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/LadosTriangulo/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ListrosDsit/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ListrosDsit/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/MatrizEx1/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/MatrizEx1/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/MediaNotasAlunos/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/MediaNotasAlunos/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/OrdemDecrescente/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/OrdemDecrescente/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ProgPessoas/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ProgPessoas/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/RentCarLda/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/RentCarLda/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/StockMedio/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/StockMedio/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/TodosRelacionamentos/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/TodosRelacionamentos/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/TodosRelacionamrntosCorr/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/TodosRelacionamrntosCorr/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ValoresDigitados/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ValoresDigitados/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/VerificarCodigo/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/VerificarCodigo/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/VerificarCodigoProf/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/VerificarCodigoProf/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/teatroTeste/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/teatroTeste/src/main/resources" charset="UTF-8" />
+  </component>
+</project>

@@ -43,11 +43,25 @@ public class InserirCliente {
                     System.out.print("Morada: ");
                     String morada = entrada.next();
 
-                    System.out.print("Cartao de Cidadao (CC): ");
+                    System.out.print("Cartao de Cidadao (CC - 8 dígitos): ");
                     String cc = entrada.next();
 
-                    System.out.print("Carta de Conducao: ");
+                    // Verifica se o CC tem 8 dígitos
+                    while (!cc.matches("\\d{8}")) { // Expressão regular para 8 dígitos
+                        System.out.println("CC inválido! Deve conter exatamente 8 dígitos numéricos. Tenta novamente.");
+                        System.out.print("Cartão de Cidadão (CC - 8 dígitos): ");
+                        cc = entrada.next();
+                    }
+
+                    System.out.print("Carta de Condução (formato AB123456): ");
                     String cartaConducao = entrada.next();
+
+                    // Verifica se a Carta de Condução segue o formato VR-12345 6
+                    while (!cartaConducao.matches("^[A-Z]{2}\\d{5}\\d{1}")) {
+                        System.out.println("Carta de Condução inválida! Deve seguir o formato AB123456.");
+                        System.out.print("Carta de Condução (formato AB123456): ");
+                        cartaConducao = entrada.next();
+                    }
 
                     Cliente novoCliente = new Cliente(nome, morada, cc, cartaConducao);
                     clientes.add(novoCliente);
@@ -65,7 +79,8 @@ public class InserirCliente {
                     System.out.println("Escolha o cliente a remover:");
                     for (int i = 0; i < clientes.size(); i++) {
                         Cliente c = clientes.get(i);
-                        System.out.println((i + 1) + " - " + c.getNome() + " " + c.getCc());
+                        System.out.println((i + 1) + " - " + c.getNome() + " (CC - " + c.getCc() + ")\n  - Carta Nº: " + c.getCartaConducao() + "\n  - Morada: " + c.getMorada());
+                        System.out.println();
                     }
 
                     System.out.print("\nIndica o ID do cliente: ");
@@ -99,7 +114,9 @@ public class InserirCliente {
                     System.out.println("Escolha o cliente a alterar:");
                     for (int i = 0; i < clientes.size(); i++) {
                         Cliente c = clientes.get(i);
-                        System.out.println((i + 1) + " - " + c.getNome() + " " + c.getCc());
+                        System.out.println((i + 1) + " - " + c.getNome() + " (CC - " + c.getCc() + ")\n  - Carta Nº: "
+                                + c.getCartaConducao() + "\n  - Morada: " + c.getMorada());
+                        System.out.println();
                     }
 
                     System.out.print("\nIndica o ID do cliente: ");
@@ -115,23 +132,42 @@ public class InserirCliente {
 
                     System.out.println("\nAlterar os seguintes campos (pressiona Enter para manter o valor atual):\n");
 
+                    // Nome
                     System.out.print("Novo Nome (" + clienteAlterar.getNome() + "): ");
                     String novoNome = entrada.nextLine();
                     if (!novoNome.isEmpty()) clienteAlterar.setNome(novoNome);
 
-                    System.out.print("Novo CC (" + clienteAlterar.getCc() + "): ");
+                    // CC
+                    System.out.print("Novo CC (" + clienteAlterar.getCc() + " - 8 dígitos): ");
                     String novoCc = entrada.nextLine();
-                    if (!novoCc.isEmpty()) clienteAlterar.setCc(novoCc);
+                    if (!novoCc.isEmpty()) {
+                        while (!novoCc.matches("\\d{8}")) {
+                            System.out.println("CC inválido! Deve conter exatamente 8 dígitos numéricos.");
+                            System.out.print("Novo CC (" + clienteAlterar.getCc() + " - 8 dígitos): ");
+                            novoCc = entrada.nextLine();
+                        }
+                        clienteAlterar.setCc(novoCc);
+                    }
 
+                    // Morada
                     System.out.print("Nova Morada (" + clienteAlterar.getMorada() + "): ");
                     String novaMorada = entrada.nextLine();
                     if (!novaMorada.isEmpty()) clienteAlterar.setMorada(novaMorada);
 
+                    // Carta de Condução
                     System.out.print("Nova Carta de Condução (" + clienteAlterar.getCartaConducao() + "): ");
                     String novaCartaConducao = entrada.nextLine();
-                    if (!novaCartaConducao.isEmpty()) clienteAlterar.setCartaConducao(novaCartaConducao);
+                    if (!novaCartaConducao.isEmpty()) {
+                        while (!novaCartaConducao.matches("^[A-Z]{2}\\d{5}\\d$")) {
+                            System.out.println("Carta de Condução inválida! Deve seguir o formato AB123456.");
+                            System.out.print("Nova Carta de Condução (" + clienteAlterar.getCartaConducao() + "): ");
+                            novaCartaConducao = entrada.nextLine();
+                        }
+                        clienteAlterar.setCartaConducao(novaCartaConducao);
+                    }
 
                     System.out.println("Cliente alterado com sucesso!\n");
+
                     break;
 
                 case 4:
