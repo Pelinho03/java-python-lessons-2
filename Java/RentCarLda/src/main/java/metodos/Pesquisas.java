@@ -1,8 +1,11 @@
 package metodos;
 
+import rentcarlda.Aluguer;
 import rentcarlda.Automovel;
 import rentcarlda.Cliente;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
@@ -158,8 +161,53 @@ public class Pesquisas {
 
                 case 3:
                     System.out.println("");
-                    System.out.println("3");
+                    System.out.println("Digite o intervalo de datas para a pesquisa:");
+
+                    // Data de início
+                    System.out.print("Data de início (formato yyyy-MM-dd): ");
+                    String dataInicioStr = entrada.next();
+                    // Data de fim
+                    System.out.print("Data de fim (formato yyyy-MM-dd): ");
+                    String dataFimStr = entrada.next();
+
+                    try {
+                        SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
+                        Date dataInicio = formato.parse(dataInicioStr);
+                        Date dataFim = formato.parse(dataFimStr);
+
+                        boolean encontrou = false;
+
+                        // Percorrer todos os automóveis e seus alugueres usando loops tradicionais
+                        for (int i = 0; i < automoveis.size(); i++) {
+                            Automovel a = automoveis.get(i);
+
+                            // Percorrer os alugueres de cada automóvel
+                            for (int j = 0; j < a.getAlugueres().size(); j++) {
+                                Aluguer aluguer = a.getAlugueres().get(j);
+                                Date inicioAluguer = aluguer.getDataInicio();
+                                Date fimAluguer = aluguer.getDataFim();
+
+                                // Verificar se o aluguer está dentro do intervalo de datas
+                                if ((inicioAluguer.after(dataInicio) || inicioAluguer.equals(dataInicio)) &&
+                                        (fimAluguer.before(dataFim) || fimAluguer.equals(dataFim))) {
+                                    System.out.println("Automóvel: " + a.getMarca() + " " + a.getModelo() + " (" + a.getMatricula() + ")");
+                                    System.out.println("Data de início: " + formato.format(inicioAluguer) + ", Data de fim: " + formato.format(fimAluguer));
+                                    System.out.println("Cliente: " + aluguer.getCliente().getNome() + " (CC: " + aluguer.getCliente().getCc() + ")");
+                                    System.out.println("Custo total: " + aluguer.calcularCusto() + "€");
+                                    System.out.println();
+                                    encontrou = true;
+                                }
+                            }
+                        }
+
+                        if (!encontrou) {
+                            System.out.println("Nenhum aluguer encontrado dentro do intervalo de datas especificado.");
+                        }
+                    } catch (Exception e) {
+                        System.out.println("Erro ao processar as datas. Certifique-se de que o formato está correto.");
+                    }
                     break;
+
 
                 case 4:
                     System.out.println("");

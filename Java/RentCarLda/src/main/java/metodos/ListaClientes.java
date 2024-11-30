@@ -2,6 +2,7 @@ package metodos;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+
 import rentcarlda.Cliente;
 
 public class ListaClientes {
@@ -13,9 +14,12 @@ public class ListaClientes {
             System.out.println("Nenhum cliente registado.");
             return;
         }
-        for (int c = 0; c < clientes.size(); c++) {
-            Cliente a = clientes.get(c);
-            System.out.println((c + 1) + "- " + a.getNome() + " (CC: " + a.getCc() + ")");
+        for (int i = 0; i < clientes.size(); i++) {
+            Cliente c = clientes.get(i);
+            System.out.println((i + 1) + "- " + c.getNome() + " (CC: " + c.getCc() + ")" +
+                    "\n - Carta Nª: " + c.getCartaConducao() +
+                    "\n - Morada: " + c.getMorada());
+            System.out.println();
         }
         System.out.println("");
     }

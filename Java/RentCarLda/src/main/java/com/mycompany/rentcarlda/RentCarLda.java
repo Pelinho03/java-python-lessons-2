@@ -99,12 +99,12 @@ public class RentCarLda {
         automoveis.add(new Automovel("Volkswagen", "Golf", "Prata", 2017, 1400, "FF-06-FF", 60.0, false, null));
 
         // Adicionar clientes
-        clientes.add(new Cliente("João", "Rua A, Porto", "12345678", "VR123456"));
-        clientes.add(new Cliente("Maria", "Av. B, Lisboa", "87654321", "PT678903"));
-        clientes.add(new Cliente("Carlos", "Praça C, Coimbra", "23456789", "VS000019"));
-        clientes.add(new Cliente("Ana", "Rua D, Braga", "34567890", "BR543214"));
-        clientes.add(new Cliente("Tiago", "Av. E, Faro", "45678901", "LS098762"));
-        clientes.add(new Cliente("Sofia", "Praça F, Setúbal", "56789012", "AL112237"));
+        clientes.add(new Cliente("João", "Porto", "12345678", "VR123456"));
+        clientes.add(new Cliente("Maria", "Lisboa", "87654321", "PT678903"));
+        clientes.add(new Cliente("Carlos", "Coimbra", "23456789", "VS000019"));
+        clientes.add(new Cliente("Ana", "Braga", "34567890", "BR543214"));
+        clientes.add(new Cliente("Tiago", "Faro", "45678901", "LS098762"));
+        clientes.add(new Cliente("Sofia", "Setúbal", "56789012", "AL112237"));
     }
 
 
