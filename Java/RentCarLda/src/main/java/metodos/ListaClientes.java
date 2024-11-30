@@ -16,7 +16,7 @@ public class ListaClientes {
         }
         for (int i = 0; i < clientes.size(); i++) {
             Cliente c = clientes.get(i);
-            System.out.println((i + 1) + "- " + c.getNome() + " (CC: " + c.getCc() + ")" +
+            System.out.println((i + 1) + " - " + c.getNome() + " (CC: " + c.getCc() + ")" +
                     "\n - Carta Nª: " + c.getCartaConducao() +
                     "\n - Morada: " + c.getMorada());
             System.out.println();

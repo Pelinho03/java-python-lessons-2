@@ -39,11 +39,13 @@ public class ListaAutomoveis {
                 case 1:
                     // Automóveis disponíveis
                     boolean encontrouDisponiveis = false;
-                    for (Automovel a : automoveis) {
+                    for (int i = 0; i < automoveis.size(); i++) {
+                        Automovel a = automoveis.get(i);
                         if (!a.isAlugado()) { // Só mostra disponíveis
                             encontrouDisponiveis = true;
-                            System.out.println("- " + a.getMarca() + " " + a.getModelo() + " (" + a.getMatricula() + ")\n  - Ano: "
-                                    + a.getAnoAquisicao() + "\n  - Valor: " + a.getValorDia() + " € por dia - Disponível");
+                            System.out.println((i + 1) + " - " + a.getMarca() + " " + a.getModelo() + " (" + a.getMatricula() + ")" +
+                                    "\n  - Ano: " + a.getAnoAquisicao() + "" +
+                                    "\n  - Valor: " + a.getValorDia() + " € por dia - Disponível");
                             System.out.println();
                         }
                     }
@@ -66,7 +68,8 @@ public class ListaAutomoveis {
                     todosAlugueres.sort((a1, a2) -> a1.getDataFim().compareTo(a2.getDataFim()));
 
                     // Mostrar os alugueres ordenados
-                    for (Aluguer aluguer : todosAlugueres) {
+                    for (int i = 0; i < todosAlugueres.size(); i++) {
+                        Aluguer aluguer = todosAlugueres.get(i);
                         encontrouAlugados = true;
 
                         // Formatar as datas de início e fim para exibição
@@ -81,12 +84,15 @@ public class ListaAutomoveis {
                         String ccCliente = cliente.getCc();
 
                         // Exibir informações do aluguer
-                        System.out.println("- " + a.getMarca() + " " + a.getModelo() + " (" + a.getMatricula() + ") de "
-                                + a.getAnoAquisicao() + " (" + a.getValorDia() + " € por dia)\n- Alugado de " + dataInicioFormatada
-                                + " até " + dataFimFormatada + "\n- Cliente: " + nomeCliente + " (CC: " + ccCliente + ")"
-                                + "\n- Total: " + aluguer.calcularCusto());
+                        System.out.println((i + 1) + " - " + a.getMarca() + " " + a.getModelo() + " (" + a.getMatricula() + ")" +
+                                "\n  - Ano: " + a.getAnoAquisicao() + "" +
+                                "\n  - Valor: (" + a.getValorDia() + " € por dia)" +
+                                "\n  - Alugado de: " + dataInicioFormatada + " até " + dataFimFormatada +
+                                "\n    -> Cliente: " + nomeCliente + " (CC: " + ccCliente + ")" +
+                                "\n    -> Total: " + aluguer.calcularCusto() + "€");
                         System.out.println();
                     }
+
 
                     if (!encontrouAlugados) {
                         System.out.println("Nenhum automóvel alugado.");

@@ -161,7 +161,7 @@ public class Pesquisas {
 
                 case 3:
                     System.out.println("");
-                    System.out.println("Digite o intervalo de datas para a pesquisa:");
+                    System.out.println("Digita o intervalo de datas para a pesquisa:");
 
                     // Data de início
                     System.out.print("Data de início (formato yyyy-MM-dd): ");
@@ -169,6 +169,7 @@ public class Pesquisas {
                     // Data de fim
                     System.out.print("Data de fim (formato yyyy-MM-dd): ");
                     String dataFimStr = entrada.next();
+                    System.out.println();
 
                     try {
                         SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
@@ -190,10 +191,10 @@ public class Pesquisas {
                                 // Verificar se o aluguer está dentro do intervalo de datas
                                 if ((inicioAluguer.after(dataInicio) || inicioAluguer.equals(dataInicio)) &&
                                         (fimAluguer.before(dataFim) || fimAluguer.equals(dataFim))) {
-                                    System.out.println("Automóvel: " + a.getMarca() + " " + a.getModelo() + " (" + a.getMatricula() + ")");
-                                    System.out.println("Data de início: " + formato.format(inicioAluguer) + ", Data de fim: " + formato.format(fimAluguer));
-                                    System.out.println("Cliente: " + aluguer.getCliente().getNome() + " (CC: " + aluguer.getCliente().getCc() + ")");
-                                    System.out.println("Custo total: " + aluguer.calcularCusto() + "€");
+                                    System.out.println("\nAutomóvel: " + a.getMarca() + " " + a.getModelo() + "" +
+                                            "\n- Alugado de: " + formato.format(inicioAluguer) + " até " + formato.format(fimAluguer) +
+                                            "\n- Cliente: " + aluguer.getCliente().getNome() + " (CC: " + aluguer.getCliente().getCc() + ")" +
+                                            "\n-Total: " + aluguer.calcularCusto() + "€");
                                     System.out.println();
                                     encontrou = true;
                                 }
