@@ -16,7 +16,8 @@ public class Automovel {
     private List<Aluguer> alugueres; // Lista de alugueres
 
     // Construtor
-    public Automovel(String marca, String modelo, String cor, int anoAquisicao, int cilindrada, String matricula, double valorDia, boolean alugado, List<Aluguer> alugueres) {
+    public Automovel(String marca, String modelo, String cor, int anoAquisicao,
+                     int cilindrada, String matricula, double valorDia, boolean alugado, List<Aluguer> alugueres) {
         this.marca = marca;
         this.modelo = modelo;
         this.cor = cor;
@@ -94,7 +95,8 @@ public class Automovel {
 
     // Verificar se o automóvel está disponível numa data específica
     public boolean estaDisponivel(Date dataInicio, Date dataFim) {
-        for (Aluguer aluguer : alugueres) {
+        for (int i = 0; i < alugueres.size(); i++) {
+            Aluguer aluguer = alugueres.get(i);
             Date inicio = aluguer.getDataInicio();
             Date fim = aluguer.getDataFim();
 
@@ -107,7 +109,8 @@ public class Automovel {
 
     // Verificar se está alugado no momento
     public boolean isAlugado() {
-        for (Aluguer aluguer : alugueres) {
+        for (int i = 0; i < alugueres.size(); i++) {
+            Aluguer aluguer = alugueres.get(i);
             Date hoje = new Date();
             if (!(hoje.before(aluguer.getDataInicio()) || hoje.after(aluguer.getDataFim()))) {
                 return true;
@@ -127,7 +130,8 @@ public class Automovel {
             System.out.println("Este automóvel não possui alugueres.");
             return;
         }
-        for (Aluguer aluguer : alugueres) {
+        for (int i = 0; i < alugueres.size(); i++) {
+            Aluguer aluguer = alugueres.get(i);
             System.out.println("Cliente: " + aluguer.getCliente().getNome()
                     + " | Data Início: " + aluguer.getDataInicio()
                     + " | Data Fim: " + aluguer.getDataFim());

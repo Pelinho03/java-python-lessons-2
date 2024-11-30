@@ -44,7 +44,7 @@ public class RentCarLda {
 
             opcao = entrada.nextInt();
 
-            if (opcao < 1 || opcao > 6) {
+            if (opcao < 1 || opcao > 7) {
                 System.out.println("Valor invalido! Tenta novamente.");
                 continue;
             }
