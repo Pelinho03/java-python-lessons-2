@@ -25,9 +25,9 @@ public class RentCarLda {
             System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-");
             System.out.println("""
                     Escolhe uma opcao: 
-                    1 - Automovel
+                    1 - Automóvel
                     2 - Cliente
-                    3 - Ver lista de Automoveis
+                    3 - Ver lista de Automóveis
                     4 - Ver lista de Clientes
                     5 - Aluguer
                     6 - Pesquisas

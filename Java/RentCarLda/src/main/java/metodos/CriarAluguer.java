@@ -17,11 +17,14 @@ public class CriarAluguer {
 
         int escolha = 4;
         do {
-            System.out.println("Escolhe uma das opções:");
+            System.out.println("RentCarLda > Aluguer");
+            System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-");
+            System.out.println("Escolhe uma opcao: ");
             System.out.println("1 - Criar Aluguer." +
                     "\n2 - Eliminar Aluguer." +
                     "\n3 - Alterar Aluguer." +
                     "\n4 - Sair.");
+            System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-");
             System.out.print("\nOpcao: ");
 
             // Verificar se a entrada é válida (número)
@@ -39,6 +42,7 @@ public class CriarAluguer {
 
             switch (escolha) {
                 case 1:
+                    System.out.println("RentCarLda > Aluguer > Criar\n");
                     if (automoveis.isEmpty() || clientes.isEmpty()) {
                         System.out.println("Não há automóveis ou clientes para realizar o aluguer.\n");
                         return;
@@ -117,6 +121,7 @@ public class CriarAluguer {
                     break;
 
                 case 2:
+                    System.out.println("RentCarLda > Aluguer > Eliminar\n");
                     // Verificar se há automóveis com alugueres
                     boolean encontrouAlugueres = false;
                     for (Automovel automovel : automoveis) {
@@ -174,6 +179,7 @@ public class CriarAluguer {
                     break;
 
                 case 3:
+                    System.out.println("RentCarLda > Aluguer > Alterar\n");
                     // Verificar se há alugueres registados
                     boolean encontrouAlugueresAlterar = false;
                     for (Automovel automovel : automoveis) {

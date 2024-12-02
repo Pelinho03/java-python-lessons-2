@@ -15,11 +15,14 @@ public class ListaAutomoveis {
     public static void listaAutomoveis(Scanner entrada, ArrayList<Automovel> automoveis) {
         int escolha = 3;
         do {
-            System.out.println("Escolhe a opcao: ");
+            System.out.println("RentCarLda > Lista de Automóveis");
+            System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-");
+            System.out.println("Escolhe uma opcao: ");
             System.out.println("""
                     1 - Automoveis disponiveis.
                     2 - Automoveis alugados.
                     3 - Sair.""");
+            System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-");
             System.out.print("\nOpcao: ");
 
             // Verificar se a entrada é válida (número)
@@ -37,6 +40,7 @@ public class ListaAutomoveis {
 
             switch (escolha) {
                 case 1:
+                    System.out.println("RentCarLda > Lista de Automóveis > Disponíveis\n");
                     // Automóveis disponíveis
                     boolean encontrouDisponiveis = false;
                     for (int i = 0; i < automoveis.size(); i++) {
@@ -44,7 +48,8 @@ public class ListaAutomoveis {
                         if (!a.isAlugado()) { // Só mostra disponíveis
                             encontrouDisponiveis = true;
                             System.out.println((i + 1) + " - " + a.getMarca() + " " + a.getModelo() + " (" + a.getMatricula() + ")" +
-                                    "\n  - Ano: " + a.getAnoAquisicao() + "" +
+                                    "\n  - Cor: " + a.getCor() +
+                                    "\n  - Ano: " + a.getAnoAquisicao() +
                                     "\n  - Valor: " + a.getValorDia() + " € por dia - Disponível");
                             System.out.println();
                         }
@@ -55,6 +60,7 @@ public class ListaAutomoveis {
                     System.out.println("");
                     break;
                 case 2:
+                    System.out.println("RentCarLda > Lista de Automóveis > Alugados\n");
                     // Automóveis alugados
                     boolean encontrouAlugados = false;
                     ArrayList<Aluguer> todosAlugueres = new ArrayList<>();

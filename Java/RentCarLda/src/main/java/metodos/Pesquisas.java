@@ -15,8 +15,9 @@ public class Pesquisas {
 
         int escolha = 4;
         do {
+            System.out.println("RentCarLda > Pesquisas");
             System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-");
-            System.out.println("Escolhe a opção:");
+            System.out.println("Escolhe uma opcao: ");
             System.out.println("1 - Pesquisar Automóvel;" +
                     "\n2 - Pesquisar Cliente;" +
                     "\n3 - Pesquisar Datas;" +
@@ -40,11 +41,14 @@ public class Pesquisas {
 
             switch (escolha) {
                 case 1:
-                    System.out.println("");
+                    System.out.println("RentCarLda > Pesquisas > Automóvel");
+                    System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-");
+                    System.out.println("Escolhe um dos critérios: ");
                     System.out.println("Escolha um critério de pesquisa:");
                     System.out.println("1 - Pesquisar por Marca" +
                             "\n2 - Pesquisar por Modelo;" +
                             "\n3 - Voltar.");
+                    System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-");
                     System.out.print("\nOpcao: ");
 
                     int pesquisaAuto = entrada.nextInt();
@@ -90,12 +94,14 @@ public class Pesquisas {
                     break;
 
                 case 2:
-                    System.out.println("");
-                    System.out.println("Escolhe um dis critérios de pesquisa:");
+                    System.out.println("RentCarLda > Pesquisas > Cliente");
+                    System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-");
+                    System.out.println("Escolhe um dos critérios: ");
                     System.out.println("1 - Pesquisa por Nome;" +
                             "\n2 - Pesquisa por Morada;" +
                             "\n3 - Pesquisa por CC;" +
                             "\n4 - Voltar.");
+                    System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-");
                     System.out.print("\nOpcao: ");
 
                     int pesquisaCliente = entrada.nextInt();
@@ -160,8 +166,10 @@ public class Pesquisas {
                     break;
 
                 case 3:
-                    System.out.println("");
+                    System.out.println("RentCarLda > Pesquisas > Datas");
+                    System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-");
                     System.out.println("Digita o intervalo de datas para a pesquisa:");
+                    System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-");
 
                     // Data de início
                     System.out.print("Data de início (formato yyyy-MM-dd): ");

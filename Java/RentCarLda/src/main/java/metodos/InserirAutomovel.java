@@ -13,8 +13,9 @@ public class InserirAutomovel {
     public static void inserirAutomovel(Scanner entrada, List<Automovel> automoveis) {
         int escolha = 4;
         do {
+            System.out.println("RentCarLda > Automóvel");
             System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-");
-            System.out.println("Escolhe uma das opções:");
+            System.out.println("Escolhe uma opcao: ");
             System.out.println("1 - Inserir Automóvel." +
                     "\n2 - Eliminar Automóvel." +
                     "\n3 - Alterar Automóvel." +
@@ -38,6 +39,7 @@ public class InserirAutomovel {
 
             switch (escolha) {
                 case 1:
+                    System.out.println("RentCarLda > Automóvel > Inserir");
                     System.out.print("\nMarca: ");
                     String marca = entrada.next();
 
@@ -67,6 +69,7 @@ public class InserirAutomovel {
                     break;
 
                 case 2:
+                    System.out.println("RentCarLda > Automóvel > Eliminar\n");
                     if (automoveis.isEmpty()) {
                         System.out.println("Não há automóveis registados para remover.");
                         return;
@@ -100,6 +103,7 @@ public class InserirAutomovel {
                     break;
 
                 case 3:
+                    System.out.println("RentCarLda > Automóvel > Alterar\n");
                     if (automoveis.isEmpty()) {
                         System.out.println("Não há automóveis registados para alterar.");
                         return;

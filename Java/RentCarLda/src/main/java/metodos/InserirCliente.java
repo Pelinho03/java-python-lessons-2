@@ -14,11 +14,14 @@ public class InserirCliente {
 
         int escolha = 4;
         do {
-            System.out.println("Escolhe uma das opções:");
+            System.out.println("RentCarLda > Cliente");
+            System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-");
+            System.out.println("Escolhe uma opcao: ");
             System.out.println("1 - Inserir Cliente." +
                     "\n2 - Eliminar Cliente." +
                     "\n3 - Alterar Cliente." +
                     "\n4 - Sair.");
+            System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-");
             System.out.print("\nOpcao: ");
 
             // Verificar se a entrada é válida (número)
@@ -37,6 +40,7 @@ public class InserirCliente {
 
             switch (escolha) {
                 case 1:
+                    System.out.println("RentCarLda > Cliente > Inserir");
                     System.out.print("Nome: ");
                     String nome = entrada.next();
 
@@ -71,6 +75,7 @@ public class InserirCliente {
                     break;
 
                 case 2:
+                    System.out.println("RentCarLda > Cliente > Eliminar\n");
                     if (clientes.isEmpty()) {
                         System.out.println("Não há clientes registados para remover.\n");
                         return;
@@ -87,7 +92,7 @@ public class InserirCliente {
                     int escolhaRemover = entrada.nextInt() - 1;
 
                     if (escolhaRemover < 0 || escolhaRemover >= clientes.size()) {
-                        System.out.println("Escolha inválida.");
+                        System.out.println("Escolha inválida.\n");
                         return;
                     }
 
@@ -105,7 +110,7 @@ public class InserirCliente {
                     break;
 
                 case 3:
-
+                    System.out.println("RentCarLda > Cliente > Alterar\n11");
                     if (clientes.isEmpty()) {
                         System.out.println("Não há clientes registados para alterar.\n");
                         return;
