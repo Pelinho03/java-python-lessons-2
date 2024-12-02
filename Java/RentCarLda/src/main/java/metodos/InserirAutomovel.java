@@ -15,13 +15,13 @@ public class InserirAutomovel {
         do {
             System.out.println("RentCarLda > Automóvel");
             System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-");
-            System.out.println("Escolhe uma opcao: ");
+            System.out.println("Escolhe uma Opção: ");
             System.out.println("1 - Inserir Automóvel." +
                     "\n2 - Eliminar Automóvel." +
                     "\n3 - Alterar Automóvel." +
                     "\n4 - Sair.");
             System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-");
-            System.out.print("\nOpcao: ");
+            System.out.print("\nOpção: ");
 
             // Verificar se a entrada é válida (número)
             if (!entrada.hasNextInt()) {
@@ -32,7 +32,7 @@ public class InserirAutomovel {
 
             escolha = entrada.nextInt();
             if (escolha < 1 || escolha > 4) {
-                System.out.println("ERRO, escolhe uma opcao valida!");
+                System.out.println("ERRO, escolhe uma Opção válida!");
                 continue;
             }
 

@@ -24,7 +24,7 @@ public class RentCarLda {
             System.out.println("Bem-vindo a Rent Car Lda!");
             System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-");
             System.out.println("""
-                    Escolhe uma opcao: 
+                    Escolhe uma Opção: 
                     1 - Automóvel
                     2 - Cliente
                     3 - Ver lista de Automóveis
@@ -33,7 +33,7 @@ public class RentCarLda {
                     6 - Pesquisas
                     7 - Sair""");
             System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-");
-            System.out.print("\nOpcao: ");
+            System.out.print("\nOpção: ");
 
             // Verificar se a entrada é válida (número)
             if (!entrada.hasNextInt()) {

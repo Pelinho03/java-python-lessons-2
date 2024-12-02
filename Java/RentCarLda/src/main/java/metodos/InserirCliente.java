@@ -16,13 +16,13 @@ public class InserirCliente {
         do {
             System.out.println("RentCarLda > Cliente");
             System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-");
-            System.out.println("Escolhe uma opcao: ");
+            System.out.println("Escolhe uma Opção: ");
             System.out.println("1 - Inserir Cliente." +
                     "\n2 - Eliminar Cliente." +
                     "\n3 - Alterar Cliente." +
                     "\n4 - Sair.");
             System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-");
-            System.out.print("\nOpcao: ");
+            System.out.print("\nOpção: ");
 
             // Verificar se a entrada é válida (número)
             if (!entrada.hasNextInt()) {
@@ -33,7 +33,7 @@ public class InserirCliente {
 
             escolha = entrada.nextInt();
             if (escolha < 1 || escolha > 4) {
-                System.out.println("ERRO, escolhe uma opcao valida!");
+                System.out.println("ERRO, escolhe uma Opção valida!");
                 continue;
             }
 

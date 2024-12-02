@@ -17,13 +17,13 @@ public class Pesquisas {
         do {
             System.out.println("RentCarLda > Pesquisas");
             System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-");
-            System.out.println("Escolhe uma opcao: ");
+            System.out.println("Escolhe uma Opção: ");
             System.out.println("1 - Pesquisar Automóvel;" +
                     "\n2 - Pesquisar Cliente;" +
                     "\n3 - Pesquisar Datas;" +
                     "\n4 - Sair.");
             System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-");
-            System.out.print("\nOpcao: ");
+            System.out.print("\nOpção: ");
 
             // Verificar se a entrada é válida (número)
             if (!entrada.hasNextInt()) {
@@ -34,7 +34,7 @@ public class Pesquisas {
 
             escolha = entrada.nextInt();
             if (escolha < 1 || escolha > 4) {
-                System.out.println("ERRO, escolhe uma opcao valida!");
+                System.out.println("ERRO, escolhe uma Opção valida!");
                 continue;
             }
 
@@ -49,7 +49,7 @@ public class Pesquisas {
                             "\n2 - Pesquisar por Modelo;" +
                             "\n3 - Voltar.");
                     System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-");
-                    System.out.print("\nOpcao: ");
+                    System.out.print("\nOpção: ");
 
                     int pesquisaAuto = entrada.nextInt();
                     entrada.nextLine(); // Consumir o Enter
@@ -102,7 +102,7 @@ public class Pesquisas {
                             "\n3 - Pesquisa por CC;" +
                             "\n4 - Voltar.");
                     System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-");
-                    System.out.print("\nOpcao: ");
+                    System.out.print("\nOpcão: ");
 
                     int pesquisaCliente = entrada.nextInt();
                     entrada.nextLine();
