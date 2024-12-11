@@ -184,8 +184,8 @@ public class CriarAluguer {
                     System.out.println("RentCarLda > Aluguer > Alterar\n");
                     // Verificar se há alugueres registados
                     boolean encontrouAlugueresAlterar = false;
-                    for (Automovel automovel : automoveis) {
-                        if (!automovel.getAlugueres().isEmpty()) {
+                    for (int i = 0; i < automoveis.size(); i++) {
+                        if (!automoveis.get(i).getAlugueres().isEmpty()) {
                             encontrouAlugueresAlterar = true;
                             break;
                         }
@@ -198,8 +198,10 @@ public class CriarAluguer {
 
                     System.out.println("Escolha o aluguer a alterar:");
                     int aluguerIndexAlterar = 1; // Índice para exibir alugueres
-                    for (Automovel automovel : automoveis) {
-                        for (Aluguer aluguer : automovel.getAlugueres()) {
+                    for (int i = 0; i < automoveis.size(); i++) {
+                        Automovel automovel = automoveis.get(i);
+                        for (int j = 0; j < automovel.getAlugueres().size(); j++) {
+                            Aluguer aluguer = automovel.getAlugueres().get(j);
                             // Exibir informações do aluguer com um índice
                             System.out.println(aluguerIndexAlterar + " - Automóvel: " + automovel.getMarca() + " " + automovel.getModelo()
                                     + " (" + automovel.getMatricula() + ")\n  - Cliente: " + aluguer.getCliente().getNome()
@@ -223,8 +225,10 @@ public class CriarAluguer {
                     Aluguer aluguerAlterar = null;
                     Automovel automovelAlterar = null;
 
-                    for (Automovel automovel : automoveis) {
-                        for (Aluguer aluguer : automovel.getAlugueres()) {
+                    for (int i = 0; i < automoveis.size(); i++) {
+                        Automovel automovel = automoveis.get(i);
+                        for (int j = 0; j < automovel.getAlugueres().size(); j++) {
+                            Aluguer aluguer = automovel.getAlugueres().get(j);
                             if (aluguerIndexAlterar == escolhaAluguerAlterar) {
                                 aluguerAlterar = aluguer;
                                 automovelAlterar = automovel;
