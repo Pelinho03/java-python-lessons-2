@@ -124,7 +124,8 @@ public class CriarAluguer {
                     System.out.println("RentCarLda > Aluguer > Eliminar\n");
                     // Verificar se há automóveis com alugueres
                     boolean encontrouAlugueres = false;
-                    for (Automovel automovel : automoveis) {
+                    for (int i = 0; i < automoveis.size(); i++) {
+                        Automovel automovel = automoveis.get(i);
                         if (!automovel.getAlugueres().isEmpty()) {
                             encontrouAlugueres = true;
                             break;
@@ -164,7 +165,8 @@ public class CriarAluguer {
                     // Encontrar e remover o aluguer
                     aluguerIndex = 1; // Reiniciar o índice para localização
                     boolean aluguerRemovido = false;
-                    for (Automovel automovel : automoveis) {
+                    for (int i = 0; i < automoveis.size(); i++) {
+                        Automovel automovel = automoveis.get(i);
                         for (int j = 0; j < automovel.getAlugueres().size(); j++) {
                             if (aluguerIndex == escolhaAluguer) {
                                 automovel.getAlugueres().remove(j); // Remover o aluguer
