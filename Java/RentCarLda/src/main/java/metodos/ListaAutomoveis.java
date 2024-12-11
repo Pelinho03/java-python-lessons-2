@@ -66,8 +66,8 @@ public class ListaAutomoveis {
                     ArrayList<Aluguer> todosAlugueres = new ArrayList<>();
 
                     // Recolher todos os alugueres dos automóveis
-                    for (Automovel a : automoveis) {
-                        todosAlugueres.addAll(a.getAlugueres());
+                    for (int i = 0; i < automoveis.size(); i++) {
+                        todosAlugueres.addAll(automoveis.get(i).getAlugueres());
                     }
 
                     // Ordenar os alugueres pela data de fim
