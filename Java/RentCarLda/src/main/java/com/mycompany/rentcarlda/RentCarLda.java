@@ -13,89 +13,89 @@ public class RentCarLda {
     private static ArrayList<Cliente> clientes = new ArrayList<>();
 
     public static void main(String[] args) {
-
         // Inicializa os dados (adiciona automóveis e clientes)
         inicializarDados();
-        Scanner entrada = new Scanner(System.in);
-        int opcao = 7;  // A opção começa em 7 para entrar no loop do menu
 
-        do {
-            // Exibe o menu para o utilizador escolher a opção
-            System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-");
-            System.out.println("Bem-vindo a Rent Car Lda!");
-            System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-");
-            System.out.println("""
-                    Escolhe uma Opção: 
-                    1 - Automóvel
-                    2 - Cliente
-                    3 - Ver lista de Automóveis
-                    4 - Ver lista de Clientes
-                    5 - Aluguer
-                    6 - Pesquisas
-                    7 - Sair""");
-            System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-");
-            System.out.print("\nOpção: ");
+        // Usar try-with-resources para garantir que o Scanner seja fechado
+        try (Scanner entrada = new Scanner(System.in)) {
+            int opcao = 0;  // Inicia a opção com um valor seguro (0)
 
-            // Verifica se a entrada é válida (número)
-            if (!entrada.hasNextInt()) {
-                System.out.println("Entrada inválida! Por favor, insere um número.");
-                entrada.next(); // Limpa a entrada inválida
-                continue;
-            }
+            do {
+                // Exibe o menu para o utilizador escolher a opção
+                System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-");
+                System.out.println("Bem-vindo a Rent Car Lda!");
+                System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-");
+                System.out.println("""
+                        Escolhe uma Opção: 
+                        1 - Automóvel
+                        2 - Cliente
+                        3 - Ver lista de Automóveis
+                        4 - Ver lista de Clientes
+                        5 - Aluguer
+                        6 - Pesquisas
+                        7 - Sair""");
+                System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-");
+                System.out.print("\nOpção: ");
 
-            opcao = entrada.nextInt();  // Lê a opção do utilizador
+                // Verifica se a entrada é válida (número)
+                if (!entrada.hasNextInt()) {
+                    System.out.println("Entrada inválida! Por favor, insere um número.");
+                    entrada.next(); // Limpa a entrada inválida
+                    continue;
+                }
 
-            // Se a opção for fora do intervalo, pede para tentar novamente
-            if (opcao < 1 || opcao > 7) {
-                System.out.println("Valor invalido! Tenta novamente.");
-                continue;
-            }
+                opcao = entrada.nextInt();  // Lê a opção do utilizador
 
-            // Ação conforme a opção escolhida
-            switch (opcao) {
-                case 1:
-                    // Adicionar automóvel
-                    System.out.println("");
-                    InserirAutomovel.inserirAutomovel(entrada, automoveis);
-                    break;
-                case 2:
-                    // Adicionar cliente
-                    System.out.println("");
-                    InserirCliente.inserirCliente(entrada, clientes);
-                    break;
-                case 3:
-                    // Ver lista de automóveis
-                    System.out.println("");
-                    ListaAutomoveis.listaAutomoveis(entrada, automoveis);
-                    break;
-                case 4:
-                    // Ver lista de clientes
-                    System.out.println("");
-                    ListaClientes.listaClientes(entrada, clientes);
-                    break;
-                case 5:
-                    // Criar aluguer
-                    System.out.println("");
-                    CriarAluguer.criarAluguer(entrada, automoveis, clientes);
-                    break;
-                case 6:
-                    // Fazer pesquisa
-                    System.out.println("");
-                    Pesquisas.pesquisas(entrada, automoveis, clientes);
-                    break;
-                case 7:
-                    // Sair
-                    System.out.println("");
-                    System.out.println("A sair... Obrigado por usar Rent Car Lda!");
-                    break;
-                default:
-                    System.out.println("");
-                    System.out.println("Valor desconhecido!");
-                    break;
-            }
+                // Se a opção for fora do intervalo, pede para tentar novamente
+                if (opcao < 1 || opcao > 7) {
+                    System.out.println("Valor inválido! Tenta novamente.");
+                    continue;
+                }
 
-        } while (opcao != 7);  // Loop até o utilizador escolher a opção de sair
+                // Ação conforme a opção escolhida
+                switch (opcao) {
+                    case 1:
+                        // Adicionar automóvel
+                        System.out.println("");
+                        InserirAutomovel.inserirAutomovel(entrada, automoveis);
+                        break;
+                    case 2:
+                        // Adicionar cliente
+                        System.out.println("");
+                        InserirCliente.inserirCliente(entrada, clientes);
+                        break;
+                    case 3:
+                        // Ver lista de automóveis
+                        System.out.println("");
+                        ListaAutomoveis.listaAutomoveis(entrada, automoveis);
+                        break;
+                    case 4:
+                        // Ver lista de clientes
+                        System.out.println("");
+                        ListaClientes.listaClientes(entrada, clientes);
+                        break;
+                    case 5:
+                        // Criar aluguer
+                        System.out.println("");
+                        CriarAluguer.criarAluguer(entrada, automoveis, clientes);
+                        break;
+                    case 6:
+                        // Fazer pesquisa
+                        System.out.println("");
+                        Pesquisas.pesquisas(entrada, automoveis, clientes);
+                        break;
+                    case 7:
+                        // Sair
+                        System.out.println("");
+                        System.out.println("A sair... Obrigado por usar Rent Car Lda!");
+                        break;
+                    default:
+                        System.out.println("Valor desconhecido!");
+                        break;
+                }
 
+            } while (opcao != 7);  // Loop até o utilizador escolher a opção de sair
+        }
     }
 
     private static void inicializarDados() {
