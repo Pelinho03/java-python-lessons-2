@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="RentCarLda:jar">
+    <output-path>$USER_HOME$/OneDrive - ISPGAYA/Faculdade/LEI/Semestre_5/LTC/4_TRABALHOS/paulo_2020100560</output-path>
+    <root id="archive" name="RentCarLda.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="module-output" name="RentCarLda" />
+    </root>
+  </artifact>
+</component>

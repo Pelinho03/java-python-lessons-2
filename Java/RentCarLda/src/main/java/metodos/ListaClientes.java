@@ -23,7 +23,7 @@ public class ListaClientes {
 
             // Exibe as informações do cliente formatadas
             System.out.println((i + 1) + " - " + c.getNome() + " (CC: " + c.getCc() + ")" +
-                    "\n - Carta Nª: " + c.getCartaConducao() +
+                    "\n - Carta Nº: " + c.getCartaConducao() +
                     "\n - Morada: " + c.getMorada());
             System.out.println(); // Linha em branco para melhorar a visualização
         }
