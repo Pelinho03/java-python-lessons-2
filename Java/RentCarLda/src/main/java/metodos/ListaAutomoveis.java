@@ -13,8 +13,9 @@ public class ListaAutomoveis {
     // case 3
     // Listar automóveis
     public static void listaAutomoveis(Scanner entrada, ArrayList<Automovel> automoveis) {
-        int escolha = 3;
+        int escolha = 3; // Variável para armazenar a escolha do utilizador
         do {
+            // Menu principal
             System.out.println("RentCarLda > Lista de Automóveis");
             System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-");
             System.out.println("Escolhe uma Opção: ");
@@ -25,28 +26,29 @@ public class ListaAutomoveis {
             System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-");
             System.out.print("\nOpção: ");
 
-            // Verificar se a entrada é válida (número)
+            // Valida se a entrada é um número
             if (!entrada.hasNextInt()) {
                 System.out.println("Entrada inválida! Por favor, insere um número.");
-                entrada.next(); // Limpar a entrada inválida
+                entrada.next(); // Limpa a entrada inválida
                 continue;
             }
 
-            escolha = entrada.nextInt();
-            if (escolha < 1 || escolha > 3) {
+            escolha = entrada.nextInt(); // Lê a escolha do utilizador
+            if (escolha < 1 || escolha > 3) { // Verifica se a opção está dentro do intervalo válido
                 System.out.println("ERRO, escolhe uma Opção valida!");
                 continue;
             }
 
             switch (escolha) {
                 case 1:
+                    // Lista de automóveis disponíveis
                     System.out.println("RentCarLda > Lista de Automóveis > Disponíveis\n");
-                    // Automóveis disponíveis
-                    boolean encontrouDisponiveis = false;
+                    boolean encontrouDisponiveis = false; // Flag para verificar se há automóveis disponíveis
                     for (int i = 0; i < automoveis.size(); i++) {
                         Automovel a = automoveis.get(i);
-                        if (!a.isAlugado()) { // Só mostra disponíveis
-                            encontrouDisponiveis = true;
+                        if (!a.isAlugado()) { // Verifica se o automóvel não está alugado
+                            encontrouDisponiveis = true; // Marca como encontrado
+                            // Exibe as informações do automóvel
                             System.out.println((i + 1) + " - " + a.getMarca() + " " + a.getModelo() + " (" + a.getMatricula() + ")" +
                                     "\n  - Cor: " + a.getCor() +
                                     "\n  - Ano: " + a.getAnoAquisicao() +
@@ -54,42 +56,44 @@ public class ListaAutomoveis {
                             System.out.println();
                         }
                     }
+                    // Caso não encontre automóveis disponíveis
                     if (!encontrouDisponiveis) {
                         System.out.println("Nenhum automóvel disponível.");
                     }
                     System.out.println("");
                     break;
-                case 2:
-                    System.out.println("RentCarLda > Lista de Automóveis > Alugados\n");
-                    // Automóveis alugados
-                    boolean encontrouAlugados = false;
-                    ArrayList<Aluguer> todosAlugueres = new ArrayList<>();
 
-                    // Recolher todos os alugueres dos automóveis
+                case 2:
+                    // Lista de automóveis alugados
+                    System.out.println("RentCarLda > Lista de Automóveis > Alugados\n");
+                    boolean encontrouAlugados = false; // Flag para verificar se há automóveis alugados
+                    ArrayList<Aluguer> todosAlugueres = new ArrayList<>(); // Lista para armazenar todos os alugueres
+
+                    // Adiciona todos os alugueres de cada automóvel à lista
                     for (int i = 0; i < automoveis.size(); i++) {
                         todosAlugueres.addAll(automoveis.get(i).getAlugueres());
                     }
 
-                    // Ordenar os alugueres pela data de fim
+                    // Ordena os alugueres pela data de fim (ascendente)
                     todosAlugueres.sort((a1, a2) -> a1.getDataFim().compareTo(a2.getDataFim()));
 
-                    // Mostrar os alugueres ordenados
+                    // Percorre a lista de alugueres ordenada
                     for (int i = 0; i < todosAlugueres.size(); i++) {
                         Aluguer aluguer = todosAlugueres.get(i);
-                        encontrouAlugados = true;
+                        encontrouAlugados = true; // Marca como encontrado
 
-                        // Formatar as datas de início e fim para exibição
+                        // Formata as datas de início e fim para exibição
                         SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
                         String dataFimFormatada = formato.format(aluguer.getDataFim());
                         String dataInicioFormatada = formato.format(aluguer.getDataInicio());
 
-                        // Obter informações do automóvel e cliente
+                        // Obtém informações do automóvel e cliente associados ao aluguer
                         Automovel a = aluguer.getAutomovel();
                         Cliente cliente = aluguer.getCliente();
                         String nomeCliente = cliente.getNome();
                         String ccCliente = cliente.getCc();
 
-                        // Exibir informações do aluguer
+                        // Exibe informações detalhadas do aluguer
                         System.out.println((i + 1) + " - " + a.getMarca() + " " + a.getModelo() + " (" + a.getMatricula() + ")" +
                                 "\n  - Ano: " + a.getAnoAquisicao() + "" +
                                 "\n  - Valor: (" + a.getValorDia() + " € por dia)" +
@@ -99,7 +103,7 @@ public class ListaAutomoveis {
                         System.out.println();
                     }
 
-
+                    // Caso não encontre automóveis alugados
                     if (!encontrouAlugados) {
                         System.out.println("Nenhum automóvel alugado.");
                     }
@@ -107,13 +111,16 @@ public class ListaAutomoveis {
                     break;
 
                 case 3:
+                    // Sair do menu
                     System.out.println("A voltar ao menu principal, obrigado.");
                     break;
+
                 default:
+                    // Caso o utilizador insira um valor inválido (teoricamente não atingido devido à validação anterior)
                     System.out.println("Valor inválido!");
                     break;
             }
             System.out.println("");
-        } while (escolha != 3);
+        } while (escolha != 3); // Continua a executar até o utilizador escolher sair
     }
 }
