@@ -13,8 +13,9 @@ public class Pesquisas {
 
     public static void pesquisas(Scanner entrada, List<Automovel> automoveis, List<Cliente> clientes) {
 
-        int escolha = 4;
+        int escolha = 4; // Opção inicial para entrar no menu
         do {
+            // Menu principal de pesquisas
             System.out.println("RentCarLda > Pesquisas");
             System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-");
             System.out.println("Escolhe uma Opção: ");
@@ -32,7 +33,7 @@ public class Pesquisas {
                 continue;
             }
 
-            escolha = entrada.nextInt();
+            escolha = entrada.nextInt(); // Obter a escolha do utilizador
             if (escolha < 1 || escolha > 4) {
                 System.out.println("ERRO, escolhe uma Opção valida!");
                 continue;
@@ -40,7 +41,7 @@ public class Pesquisas {
 
 
             switch (escolha) {
-                case 1:
+                case 1: // Pesquisar Automóvel
                     System.out.println("RentCarLda > Pesquisas > Automóvel");
                     System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-");
                     System.out.println("Escolhe um dos critérios: ");
@@ -70,7 +71,7 @@ public class Pesquisas {
                         if (!encontrou) {
                             System.out.println("Nenhum automóvel encontrado com a marca '" + marca + "'.\n");
                         }
-                    } else if (pesquisaAuto == 2) {
+                    } else if (pesquisaAuto == 2) { // Pesquisar por modelo
                         System.out.print("Digite o modelo do automóvel: ");
                         String modelo = entrada.nextLine();
                         boolean encontrou = false;
@@ -93,7 +94,7 @@ public class Pesquisas {
                     }
                     break;
 
-                case 2:
+                case 2: // Pesquisar Cliente
                     System.out.println("RentCarLda > Pesquisas > Cliente");
                     System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-");
                     System.out.println("Escolhe um dos critérios: ");
@@ -105,9 +106,9 @@ public class Pesquisas {
                     System.out.print("\nOpcão: ");
 
                     int pesquisaCliente = entrada.nextInt();
-                    entrada.nextLine();
+                    entrada.nextLine(); // Consumir Enter
 
-                    if (pesquisaCliente == 1) {
+                    if (pesquisaCliente == 1) { // Pesquisa por nome
                         System.out.print("Digita o nome da Pessoa: ");
                         String nome = entrada.nextLine();
                         boolean encontrou = false;
@@ -124,7 +125,7 @@ public class Pesquisas {
                             System.out.println("Nenhuma pessoa encontrada com esse Nome '" + nome + "'.\n");
                         }
 
-                    } else if (pesquisaCliente == 2) {
+                    } else if (pesquisaCliente == 2) { // Pesquisa por morada
                         System.out.println("Digita a morada da pessoa: ");
                         String morada = entrada.nextLine();
                         boolean encontrou = false;
@@ -141,7 +142,7 @@ public class Pesquisas {
                             System.out.println("Nenhuma pessoa encontrada com essa Morada '" + morada + "'.\n");
                         }
 
-                    } else if (pesquisaCliente == 3) {
+                    } else if (pesquisaCliente == 3) { // Pesquisa por CC
                         System.out.println("Digita o CC da pessoa: ");
                         String cc = entrada.nextLine();
                         boolean encontrou = false;
@@ -165,7 +166,7 @@ public class Pesquisas {
                     }
                     break;
 
-                case 3:
+                case 3: // Pesquisar por datas
                     System.out.println("RentCarLda > Pesquisas > Datas");
                     System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-");
                     System.out.println("Digita o intervalo de datas para a pesquisa:");
@@ -180,6 +181,7 @@ public class Pesquisas {
                     System.out.println();
 
                     try {
+                        // Converter as datas de entrada para o formato Date
                         SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
                         Date dataInicio = formato.parse(dataInicioStr);
                         Date dataFim = formato.parse(dataFimStr);
@@ -218,7 +220,7 @@ public class Pesquisas {
                     break;
 
 
-                case 4:
+                case 4: // Sair do menu
                     System.out.println("");
                     System.out.println("A voltar ao menu principal, obrigado.\n");
                     break;
@@ -230,7 +232,7 @@ public class Pesquisas {
 
 
             }
-        } while (escolha != 4);
+        } while (escolha != 4);// Continua até o utilizador escolher sair
 
     }
 }
