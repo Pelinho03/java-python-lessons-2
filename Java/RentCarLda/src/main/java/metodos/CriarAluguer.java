@@ -15,7 +15,7 @@ public class CriarAluguer {
     // Criar aluguer
     public static void criarAluguer(Scanner entrada, ArrayList<Automovel> automoveis, ArrayList<Cliente> clientes) {
 
-        int escolha = 4;
+        int escolha = 4; //iniciar em 4 para sair
         do {
             System.out.println("RentCarLda > Aluguer");
             System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-");
@@ -34,6 +34,7 @@ public class CriarAluguer {
                 continue;
             }
 
+            //verifica se a entrada está entre 1 e 4
             escolha = entrada.nextInt();
             if (escolha < 1 || escolha > 4) {
                 System.out.println("ERRO, escolhe uma Opção valida!");
@@ -41,15 +42,16 @@ public class CriarAluguer {
             }
 
             switch (escolha) {
+                //criar um aluguer
                 case 1:
                     System.out.println("RentCarLda > Aluguer > Criar\n");
-                    if (automoveis.isEmpty() || clientes.isEmpty()) {
+                    if (automoveis.isEmpty() || clientes.isEmpty()) { //se um deles for vazio devolve mensagem de erro
                         System.out.println("Não há automóveis ou clientes para realizar o aluguer.\n");
                         return;
                     }
 
                     System.out.println("Escolha um automóvel:");
-                    for (int i = 0; i < automoveis.size(); i++) {
+                    for (int i = 0; i < automoveis.size(); i++) { //se tiver valores, apresenta os carros
                         Automovel a = automoveis.get(i);
                         System.out.println((i + 1) + " - " + a.getMarca() + " " + a.getModelo() + " (" + a.getMatricula() + ")\n- Ano: " + a.getAnoAquisicao() + ";\n- Cilindrada: " + a.getCilindrada() + ";\n- Valor: " + a.getValorDia() + "€ p/Dia.");
                         System.out.println();
@@ -58,14 +60,14 @@ public class CriarAluguer {
                     System.out.print("\nIndica o Id: ");
                     int escolhaAutomovel = entrada.nextInt() - 1;
                     if (escolhaAutomovel < 0 || escolhaAutomovel >= automoveis.size()) {
-                        System.out.println("Escolha inválida.\n");
+                        System.out.println("Escolha inválida.\n");//se o id fo veiculo nao existir emite o erro
                         return;
                     }
 
                     Automovel automovelEscolhido = automoveis.get(escolhaAutomovel);
 
                     System.out.println("\nEscolha um cliente:");
-                    for (int i = 0; i < clientes.size(); i++) {
+                    for (int i = 0; i < clientes.size(); i++) { //apresenta a lista de clientes
                         Cliente c = clientes.get(i);
                         System.out.println((i + 1) + " - " + c.getNome() + " (CC: " + c.getCc() + ")\n- Carta Nº: " + c.getCartaConducao() + ";\n- Morada: " + c.getMorada() + ".");
                         System.out.println();
@@ -74,12 +76,13 @@ public class CriarAluguer {
                     System.out.print("\nIndica o Id: ");
                     int escolhaCliente = entrada.nextInt() - 1;
                     if (escolhaCliente < 0 || escolhaCliente >= clientes.size()) {
-                        System.out.println("Escolha inválida.\n");
+                        System.out.println("Escolha inválida.\n");//se for menor que 0 ou maior que o tamanho da lista, emite o erro
                         return;
                     }
 
                     Cliente clienteEscolhido = clientes.get(escolhaCliente);
 
+                    //indicar data de inicio e fim do aluguer
                     System.out.print("\nData de início (formato yyyy-MM-dd): ");
                     String dataInicioStr = entrada.next();
                     System.out.print("Data de fim (formato yyyy-MM-dd): ");
@@ -120,8 +123,10 @@ public class CriarAluguer {
                     }
                     break;
 
+                //remover aluguer
                 case 2:
                     System.out.println("RentCarLda > Aluguer > Eliminar\n");
+
                     // Verificar se há automóveis com alugueres
                     boolean encontrouAlugueres = false;
                     for (int i = 0; i < automoveis.size(); i++) {
@@ -132,6 +137,7 @@ public class CriarAluguer {
                         }
                     }
 
+                    //se a lista estiver vazia, retorna a mensagem
                     if (!encontrouAlugueres) {
                         System.out.println("Não há alugueres registados para eliminar.\n");
                         break;
@@ -180,6 +186,7 @@ public class CriarAluguer {
                     }
                     break;
 
+                //alterar aluguer
                 case 3:
                     System.out.println("RentCarLda > Aluguer > Alterar\n");
                     // Verificar se há alugueres registados

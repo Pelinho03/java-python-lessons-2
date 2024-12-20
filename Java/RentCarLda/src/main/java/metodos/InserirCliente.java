@@ -10,7 +10,8 @@ public class InserirCliente {
 
     // case 2
     // Inserir cliente
-    public static void inserirCliente(Scanner entrada, ArrayList<Cliente> clientes) { // Tornar o método público e passar a lista
+    public static void inserirCliente(Scanner entrada, ArrayList<Cliente> clientes) { // Tornar o método público e
+                                                                                      // passar a lista
 
         int escolha = 4;
         do {
@@ -37,7 +38,6 @@ public class InserirCliente {
                 continue;
             }
 
-
             switch (escolha) {
                 case 1:
                     System.out.println("RentCarLda > Cliente > Inserir");
@@ -52,6 +52,12 @@ public class InserirCliente {
 
                     // Verifica se o CC tem 8 dígitos
                     while (!cc.matches("\\d{8}")) { // Expressão regular para 8 dígitos
+                        System.out.println("CC inválido! Deve conter exatamente 8 dígitos numéricos. Tenta novamente.");
+                        System.out.print("Cartão de Cidadão (CC - 8 dígitos): ");
+                        cc = entrada.next();
+                    }
+                    // Verifica se o CC tem 8 dígitos
+                    while (!cc.matches("\\d{8}")) {
                         System.out.println("CC inválido! Deve conter exatamente 8 dígitos numéricos. Tenta novamente.");
                         System.out.print("Cartão de Cidadão (CC - 8 dígitos): ");
                         cc = entrada.next();
@@ -84,7 +90,8 @@ public class InserirCliente {
                     System.out.println("Escolha o cliente a remover:");
                     for (int i = 0; i < clientes.size(); i++) {
                         Cliente c = clientes.get(i);
-                        System.out.println((i + 1) + " - " + c.getNome() + " (CC - " + c.getCc() + ")\n  - Carta Nº: " + c.getCartaConducao() + "\n  - Morada: " + c.getMorada());
+                        System.out.println((i + 1) + " - " + c.getNome() + " (CC - " + c.getCc() + ")\n  - Carta Nº: "
+                                + c.getCartaConducao() + "\n  - Morada: " + c.getMorada());
                         System.out.println();
                     }
 
@@ -97,7 +104,9 @@ public class InserirCliente {
                     }
 
                     Cliente clienteRemover = clientes.get(escolhaRemover);
-                    System.out.println("Tem a certeza que deseja remover o cliente " + clienteRemover.getNome() + " " + clienteRemover.getCc() + " " + clienteRemover.getMorada() + " " + clienteRemover.getCartaConducao() + "? (s/n)");
+                    System.out.println("Tem a certeza que deseja remover o cliente " + clienteRemover.getNome() + " "
+                            + clienteRemover.getCc() + " " + clienteRemover.getMorada() + " "
+                            + clienteRemover.getCartaConducao() + "? (s/n)");
                     entrada.nextLine(); // Consumir o Enter
                     String confirmacao = entrada.nextLine();
 
@@ -140,7 +149,8 @@ public class InserirCliente {
                     // Nome
                     System.out.print("Novo Nome (" + clienteAlterar.getNome() + "): ");
                     String novoNome = entrada.nextLine();
-                    if (!novoNome.isEmpty()) clienteAlterar.setNome(novoNome);
+                    if (!novoNome.isEmpty())
+                        clienteAlterar.setNome(novoNome);
 
                     // CC
                     System.out.print("Novo CC (" + clienteAlterar.getCc() + " - 8 dígitos): ");
@@ -157,7 +167,8 @@ public class InserirCliente {
                     // Morada
                     System.out.print("Nova Morada (" + clienteAlterar.getMorada() + "): ");
                     String novaMorada = entrada.nextLine();
-                    if (!novaMorada.isEmpty()) clienteAlterar.setMorada(novaMorada);
+                    if (!novaMorada.isEmpty())
+                        clienteAlterar.setMorada(novaMorada);
 
                     // Carta de Condução
                     System.out.print("Nova Carta de Condução (" + clienteAlterar.getCartaConducao() + "): ");
