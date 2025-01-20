@@ -16,6 +16,7 @@ public class RentCarLda {
         // Inicializa os dados (adiciona automóveis e clientes)
         inicializarDados();
 
+
         // Usar try-with-resources para garantir que o Scanner seja fechado
         try (Scanner entrada = new Scanner(System.in)) {
             int opcao = 0;  // Inicia a opção com um valor seguro (0)
